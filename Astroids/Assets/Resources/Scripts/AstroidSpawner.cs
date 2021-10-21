@@ -7,23 +7,30 @@ public class AstroidSpawner : MonoBehaviour
     public Transform s1, s2, s3, s4;   // Spawner positions
     public GameObject bigastroid, mediumAstroid1, mediumAstroid2, smallAstroid;   // Astroid prefab
     public float astroidSpeed = 20f;   // The force to be aplied to each astorid
+    public float waitTime = 2.0f; // Wait time between astroid spawning;
 
     private Transform activeSpawner;   // Active spawner position
     private GameObject randAstroid;   // Random astroid size to spawn
     private int random;   // Random number
+    private float timer = 0.0f; // Timer
+    private float lastTime = 0.0f;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        timer += Time.deltaTime;
+
+        if (timer >= lastTime + waitTime)
         {
             SpawnAstroid();
+
+            lastTime = timer;
         }
     }//update
 
     private void SpawnAstroid()
     {
-        int randomRotation;
+        Vector3 randomRotation = transform.rotation.eulerAngles;
 
         random = Random.Range(1, 5);
 
@@ -31,32 +38,33 @@ public class AstroidSpawner : MonoBehaviour
         {
             case 1:
                 // Generate a random number for randomizing the rotation of the spawner
-                randomRotation = Random.Range(-130, -49);
-                s1.transform.Rotate(0, 0, randomRotation, Space.World);
+                randomRotation.z = Random.Range(-130f, -49f);
+                
+                s1.transform.rotation = Quaternion.Euler(randomRotation);
 
                 activeSpawner = s1;
 
-                PickAstroid();
+                PickAstroid(); 
                 break; //case 1
             case 2:
-                randomRotation = Random.Range(-40, 41);
-                s2.transform.Rotate(0, 0, randomRotation, Space.World);
+                randomRotation.z = Random.Range(-40, 41);
+                s2.transform.rotation = Quaternion.Euler(randomRotation);
 
                 activeSpawner = s2;
 
                 PickAstroid();
                 break; //case2
             case 3:
-                randomRotation = Random.Range(50, 131);
-                s3.transform.Rotate(0, 0, randomRotation, Space.World);
+                randomRotation.z = Random.Range(50, 131);
+                s3.transform.rotation = Quaternion.Euler(randomRotation);
 
                 activeSpawner = s3;
 
                 PickAstroid();
                 break;//case3
             case 4:
-                randomRotation = Random.Range(-220, -149);
-                s4.transform.Rotate(0, 0, randomRotation, Space.World);
+                randomRotation.z = Random.Range(-220, -149);
+                s4.transform.rotation = Quaternion.Euler(randomRotation);
 
                 activeSpawner = s4;
 

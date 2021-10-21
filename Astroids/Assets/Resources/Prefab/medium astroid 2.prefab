@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7368218596123806275}
   - component: {fileID: 1801066190308886980}
   - component: {fileID: 4152238569426377434}
+  - component: {fileID: -8906262849678217385}
   m_Layer: 0
   m_Name: medium astroid 2
   m_TagString: Astroid
@@ -152,4 +153,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b8d99a7bb3d1a43991464706dd715c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 75
+  hitEffect: {fileID: 8768715465333622578, guid: b72a493aa5b0e0342ba9dc2a90050fc3,
+    type: 3}
+--- !u!114 &-8906262849678217385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907197285465627742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4d9e24c9134c1498235e91c67ac1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallAstroid: {fileID: 43876195687588367, guid: 797773698bf8cf546a75b8ef11ae682e,
+    type: 3}
+  astroidSpeed: 10

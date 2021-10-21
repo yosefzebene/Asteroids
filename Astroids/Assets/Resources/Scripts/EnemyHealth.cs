@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int Health;
+    public GameObject hitEffect;
     private GameObject b;
 
     // Start is called before the first frame update
@@ -25,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Bullet")){
+
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Health -= b.GetComponent<HitSomething>().Damage;
         }
     }
