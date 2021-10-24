@@ -9,18 +9,32 @@ public class ShipGunController : MonoBehaviour
     bool alternate = false;
 
     public GameObject bulletPrefab;          // Bullet prefab
-    public float bulletForce = 20f;     // The speed of the bullet
+    private float bulletForce = 50f;     // The speed of the bullet
+    private int ammo = 50;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-        if (Input.GetMouseButtonDown(0)) {
-            Shoot();
-        }//if
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (ammo > 0)
+            {
+                Shoot();
+            }
+        }
     }//update
 
-    void Shoot()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AmmoBox"))
+        {
+            int ammoCapacity = collision.gameObject.GetComponent<AmmoBoxCapacity>().ammoCapacity;
+
+            ammo += ammoCapacity;
+        }
+    }
+
+    private void Shoot()
     {
         // Alternate guns
         if (!alternate) {
@@ -32,9 +46,17 @@ public class ShipGunController : MonoBehaviour
             alternate = false;
         }//if-else
 
+        // Decrease ammo
+        ammo -= 1;
+
         GameObject bullet = Instantiate(bulletPrefab, G.position, G.rotation);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(G.up * bulletForce, ForceMode2D.Impulse);
     }//shoot
+
+    public int GetAmmo()
+    {
+        return ammo;
+    }
 }

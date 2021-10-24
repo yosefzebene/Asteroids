@@ -6,6 +6,7 @@ public class AstroidSpawner : MonoBehaviour
 {
     public Transform s1, s2, s3, s4;   // Spawner positions
     public GameObject bigastroid, mediumAstroid1, mediumAstroid2, smallAstroid;   // Astroid prefab
+    public GameObject ammoBox; // Ammo box prefab
     public float astroidSpeed = 20f;   // The force to be aplied to each astorid
     public float waitTime = 2.0f; // Wait time between astroid spawning;
 
@@ -80,7 +81,7 @@ public class AstroidSpawner : MonoBehaviour
 
     private void PickAstroid()
     {
-        random = Random.Range(1, 5); // Random number from 1 - 4
+        random = Random.Range(1, 6); // Random number from 1 - 4
 
         switch (random)
         {
@@ -96,6 +97,9 @@ public class AstroidSpawner : MonoBehaviour
             case 4:
                 randAstroid = bigastroid;
                 break;//case4
+            case 5:
+                randAstroid = ammoBox;
+                break;//case5
         }//switch
     }//PickAstroid
 }
