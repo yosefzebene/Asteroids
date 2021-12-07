@@ -7,12 +7,14 @@ public class FragmentAstroid : MonoBehaviour
     public GameObject smallAstroid;  // Small astroid to fragment bigger astroids
     public float astroidSpeed = 20f;
 
+    public static bool isQuitting; // Status of the application quiting
+
     private Transform currentAstorid;
-    private bool isQuitting = false; // Status of the application quiting
 
     private void Start()
     {
         currentAstorid = GetComponent<Transform>();
+        isQuitting = false;
     }
 
     private void OnApplicationQuit()

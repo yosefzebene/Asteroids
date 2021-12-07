@@ -7,7 +7,7 @@ public class HitSomething : MonoBehaviour
     public int Damage;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Astroid")) {
+        if (other.gameObject.CompareTag("Asteroid")) {
             Destroy(gameObject);
         }
     }

@@ -137,7 +137,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1359516037
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cb80725c730020c46ab7b9cac4321e5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -237,5 +237,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c24701db552f7348baa420890c01bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipSpawnerObject: {fileID: 1201050537810010943, guid: 4248a839f20eac14d882331991f38d59,
-    type: 3}

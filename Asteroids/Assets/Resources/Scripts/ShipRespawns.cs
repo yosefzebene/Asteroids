@@ -13,7 +13,7 @@ public class ShipRespawns : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Astroid"))
+        if (collision.gameObject.CompareTag("Asteroid"))
         {
             shipSpawner.respawns--;
 

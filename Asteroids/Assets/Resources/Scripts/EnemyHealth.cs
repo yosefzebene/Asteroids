@@ -6,13 +6,18 @@ public class EnemyHealth : MonoBehaviour
 {
     public int Health;
     public GameObject hitEffect;
+
     private GameObject b;
+    private GameObject pointsUI;
+    private TrackPoints pointsCounter;
 
     // Start is called before the first frame update
     void Start()
     {
         var bullet = Resources.Load<GameObject>("Prefab/bullet");
         b = bullet;
+
+        pointsUI = GameObject.Find("Points");
     }
 
     // Update is called once per frame
@@ -20,6 +25,20 @@ public class EnemyHealth : MonoBehaviour
     {
         if (Health <= 0)
         {
+            //Count point
+            if (gameObject.name == "Big astroid(Clone)")
+            {
+                TrackPoints.points += 20;
+            } 
+            else if (gameObject.name == "medium astroid 2(Clone)" || gameObject.name == "medium astroid 2(Clone)")
+            {
+                TrackPoints.points += 15;
+            }
+            else
+            {
+                TrackPoints.points += 5;
+            }
+
             Destroy(gameObject);
         }
     }
