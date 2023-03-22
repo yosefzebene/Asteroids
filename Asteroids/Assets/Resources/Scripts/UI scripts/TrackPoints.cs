@@ -13,11 +13,12 @@ public class TrackPoints : MonoBehaviour
     void Start()
     {
         pointsUI = GetComponent<Text>();
+        points = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        pointsUI.text = "Points: " + points.ToString() ;
+        pointsUI.text = points.ToString();
     }
 }

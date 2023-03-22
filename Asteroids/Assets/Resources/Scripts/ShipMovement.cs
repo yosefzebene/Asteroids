@@ -25,7 +25,7 @@ public class ShipMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        rb.AddForce(moveVelocity);
     }
 
     void FaceMouse(){

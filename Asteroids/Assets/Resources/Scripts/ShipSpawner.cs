@@ -7,6 +7,10 @@ public class ShipSpawner : MonoBehaviour
     public GameObject ship;  
     public int respawns;   // Ship respawns
 
+    //UI
+    public GameObject DeathScreen;
+    public GameObject GameOverScreen;
+
     private bool playerSpawned;
 
     // Start is called before the first frame update
@@ -20,6 +24,7 @@ public class ShipSpawner : MonoBehaviour
     {
         if (!playerSpawned && Input.GetMouseButtonDown(0))
         {
+            DeathScreen.SetActive(false);
             Vector2 playerSpawnPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             Instantiate(ship, playerSpawnPoint, Quaternion.identity);
@@ -32,11 +37,18 @@ public class ShipSpawner : MonoBehaviour
         if (respawns > 0)
         {
             playerSpawned = false;
+
+            DeathScreen.SetActive(true);
         }
         else
         {
-            //replace with a Game over screen later
-            
+            GameOverScreen.SetActive(true);
         }
+    }
+
+    public void ResetRespawns()
+    {
+        respawns = 3;
+        playerSpawned = false;
     }
 }

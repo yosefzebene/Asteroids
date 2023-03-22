@@ -8,16 +8,12 @@ public class EnemyHealth : MonoBehaviour
     public GameObject hitEffect;
 
     private GameObject b;
-    private GameObject pointsUI;
-    private TrackPoints pointsCounter;
 
     // Start is called before the first frame update
     void Start()
     {
         var bullet = Resources.Load<GameObject>("Prefab/bullet");
         b = bullet;
-
-        pointsUI = GameObject.Find("Points");
     }
 
     // Update is called once per frame
